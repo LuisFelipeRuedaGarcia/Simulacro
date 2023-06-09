@@ -31,10 +31,47 @@ class Producto Extends Conectar{
             $e->getMessage();
         }
     }
-    
+
+    public function FetchOne(){
+        try {
+            $stm = $this->DbCnx->prepare("SELECT * FROM Productos WHERE IdProducto= ?");
+            $stm->execute([$this->IdProducto]);
+            return $stm->FetchAll();
+        } catch (Exception $e) {
+            $e->getMessage();
+        }
+    }
+
+    public function Insert(){
+        try {
+            $stm = $this->DbCnx->prepare("INSERT INTO Productos(Nombre) VALUES (?)");
+            $stm->execute([$this->Nombre]);
+        } catch (Exception $e) {
+            $e->getMessage();
+        }
+    }
+
+    public function Update(){
+try {
+    $stm=$this->DbCnx->prepare("UPDATE Productos SET Nombre = ? WHERE IdProducto = ?");
+    $stm->execute([$this->Nombre, $this->IdProducto]);
+} catch (Exception $e) {
+    $e->getMessage();
+}
+    }
+    public function Delete(){
+        $stm=$this->DbCnx->prepare("DELETE FROM Productos Where IdProducto= ?");
+        $stm->execute([$this->IdProducto]);
+    }
 };
 $producto = new Producto();
-$producto->Nombre = "Lu";
+$producto->Nombre = "Luis5yy";
+$producto->IdProducto =5;
 echo $producto->Nombre;
+echo $producto->IdProducto;
 var_dump($producto->Fetch());
+var_dump($producto->FetchOne());
+/* $producto->Insert(); */
+/* $producto->Update(); */
+/* $producto->Delete(); */
 ?>
