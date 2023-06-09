@@ -31,6 +31,7 @@ class Producto Extends Conectar{
             $e->getMessage();
         }
     }
+    
 };
 $producto = new Producto();
 $producto->Nombre = "Lu";
