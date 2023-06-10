@@ -1,3 +1,13 @@
+<?php 
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
+error_reporting(E_ALL);
+echo 1;
+require_once("../BackEnd/Config/Conectar.php");
+echo 2;
+require_once("../BackEnd/producto.php");
+echo 3;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +39,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name=" value="Save changes">
+                <button type="button" class="btn btn-primary" name="Registrar" value="Registrar">
         </form>
       </div>
     </div>

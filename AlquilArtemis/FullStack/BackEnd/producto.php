@@ -1,5 +1,9 @@
 <?php
-require_once("../Config/Conectar.php");
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
+error_reporting(E_ALL);
+
+require_once("Config/Conectar.php");
 class Producto Extends Conectar{
     private $IdProducto;
     Private $Nombre;
@@ -60,17 +64,21 @@ try {
 }
     }
     public function Delete(){
-        $stm=$this->DbCnx->prepare("DELETE FROM Productos Where IdProducto= ?");
-        $stm->execute([$this->IdProducto]);
+try {
+    $stm=$this->DbCnx->prepare("DELETE FROM Productos Where IdProducto= ?");
+    $stm->execute([$this->IdProducto]);
+} catch (Exception $e) {
+    $e->getMessage();
+}
     }
-};
-$producto = new Producto();
+}
+/* $producto = new Producto();
 $producto->Nombre = "Luis5yy";
 $producto->IdProducto =5;
 echo $producto->Nombre;
 echo $producto->IdProducto;
 var_dump($producto->Fetch());
-var_dump($producto->FetchOne());
+var_dump($producto->FetchOne()); */
 /* $producto->Insert(); */
 /* $producto->Update(); */
 /* $producto->Delete(); */
