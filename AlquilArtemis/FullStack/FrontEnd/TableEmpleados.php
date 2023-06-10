@@ -30,14 +30,22 @@ var_dump($All);
         <h1 class="modal-title fs-5" id="exampleModalLabel">NuevoEmpleado</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="../BackEnd/Empleado/Registrar.php"></form>
-      <div class="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      <form action="../BackEnd/Empleado/Registrar.php" method="POST">
+        <div class="modal-body">
+        <label for="IdEmpleado">IdEmpleado</label>
+            <input type="number" name="IdEmpleado">
+            <br>
+            <label for="Username">Username</label>
+            <input type="text" name="Username">
+            <br>
+            <label for="Password">Contraseña</label>
+            <input type="text" name="Password" id="Password">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-primary" value="Registrar" name="Registrar">
+        </div>
+      </form>
     </div>
   </div>
 </div>
