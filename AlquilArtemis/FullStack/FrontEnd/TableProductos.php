@@ -2,12 +2,11 @@
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
-echo 1;
 require_once("../BackEnd/Config/Conectar.php");
-echo 2;
 require_once("../BackEnd/Producto/producto.php");
-echo 3;
-
+$Producto = new Producto();
+$AllProductos=$Producto->Fetch();
+var_dump($AllProductos);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +31,7 @@ echo 3;
         <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Producto</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-        <form action="RegistrarProducto.php" method="POST">
+        <form action="../BackEnd/Producto/Registro.php" method="POST">
             <div class="modal-body">
 
                     <label for="Nombre">Nombre</label>
@@ -40,7 +39,7 @@ echo 3;
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="Registrar" value="Registrar">
+                <input type="submit" class="btn btn-primary" name="Registrar" value="Registrar"/>
         </form>
       </div>
     </div>
@@ -60,6 +59,21 @@ echo 3;
                     example
                 </td>
             </tr>
+
+            <?php 
+          foreach($AllProductos as $key => $value){
+            echo "
+            <tr>
+              <td>
+                  {$value["IdProducto"]}
+              </td>
+              <td>
+                  {$value["Nombre"]}
+              </td>
+            </tr>
+            ";
+          }
+          ?>
         </tbody>
     </Table>
 </head>
