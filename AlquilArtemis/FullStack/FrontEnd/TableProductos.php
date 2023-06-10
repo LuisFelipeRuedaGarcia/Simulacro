@@ -5,8 +5,9 @@ error_reporting(E_ALL);
 echo 1;
 require_once("../BackEnd/Config/Conectar.php");
 echo 2;
-require_once("../BackEnd/producto.php");
+require_once("../BackEnd/Producto/producto.php");
 echo 3;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
