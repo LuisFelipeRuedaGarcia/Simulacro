@@ -45,12 +45,14 @@ var_dump($AllProductos);
     </div>
   </div>
 </div>
-    <Table>
+    <Table class="table">
         <thead>
             <th>Id</th>
             <th>Producto</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </thead>
-        <tbody>
+        <tbody class="">
             <tr>
                 <td>
                     1
@@ -58,6 +60,12 @@ var_dump($AllProductos);
                 <td>
                     example
                 </td>
+                <td>
+              <a href='#' class='btn btn-warning'>Editar<a/>
+              </td>
+              <td>
+              <a href='#' class='btn btn-danger'>Borrar<a/>
+              </td>
             </tr>
 
             <?php 
@@ -69,6 +77,12 @@ var_dump($AllProductos);
               </td>
               <td>
                   {$value["Nombre"]}
+              </td>
+              <td>
+              <a href='../BackEnd/Producto/Editar.php?id={$value["IdProducto"]}' class='btn btn-warning'>Editar<a/>
+              </td>
+              <td>
+              <a href='../BackEnd/Producto/Borrar.php?id={$value["IdProducto"]}' class='btn btn-danger'>Borrar<a/>
               </td>
             </tr>
             ";

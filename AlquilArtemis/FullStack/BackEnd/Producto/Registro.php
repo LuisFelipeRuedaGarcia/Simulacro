@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST["Registrar"])){
+
     require_once("../Config/Conectar.php");
     require_once("./producto.php");
     $producto = new Producto();
@@ -10,6 +10,6 @@ if(isset($_POST["Registrar"])){
     alert('Registro Exitoso');
     document.location='../../FrontEnd/TableProductos.php';</script>
     ";
-}
+
 
 ?>
