@@ -1,7 +1,7 @@
 <?php 
-ini_set("display_errors",1);
+/* ini_set("display_errors",1);
 ini_set("display_startup_errors", 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL); */
 class Empleado{
     private $IdEmpleado;
     private $Username;
@@ -11,7 +11,7 @@ class Empleado{
         $this->IdEmpleado=$IdEmpleado;
         $this->Username=$Username;
         $this->Password=$Password;
-        $this->DbCnx= new PDO("mysql:host=localhost;dbname=AlquilArtemis", "campus", "campus2023", [PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC]);
+        $this->DbCnx= new PDO("mysql:host=localhost;dbname=AlquilArtemis", "root", "", [PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC]);
     }
     public function __get($Property)
     {
@@ -28,9 +28,13 @@ class Empleado{
     }
 
     public function Fetch(){
-        $stm=$this->DbCnx->prepare("SELECT * FROM Empleados");
-        $stm->execute();
-        return $stm->fetchAll();
+try {
+    $stm=$this->DbCnx->prepare("SELECT * FROM Empleados");
+    $stm->execute();
+    return $stm->fetchAll();
+} catch (PDOException $e) {
+    return $e->getMessage();
+}
     }
 
     public function FetchOne(){
@@ -60,10 +64,10 @@ class Empleado{
         }
     }
 
-    public function Update(){
+    public function Update($OldId){
         try {
-            $stm=$this->DbCnx->prepare("UPDATE Empleados SET Username=?, Password=? WHERE IdEmpleado= ?");
-            $stm->execute([$this->Username,$this->Password,$this->IdEmpleado]);
+            $stm=$this->DbCnx->prepare("UPDATE Empleados SET Username=?, Password=?, IdEmpleado= ? WHERE IdEmpleado= ?");
+            $stm->execute([$this->Username, $this->Password, $this->IdEmpleado, $OldId]);
         } catch (Exception $e) {
             $e->getMessage();
         }
@@ -82,6 +86,6 @@ echo $Empleado->Password;
  var_dump($Empleado->FetchOne());
 /* $Empleado->Insert(); */
 /* $Empleado->Delete(); */
-$Empleado->Update();
+$Empleado->Update($Empleado->IdEmpleado);
 
 ?>
