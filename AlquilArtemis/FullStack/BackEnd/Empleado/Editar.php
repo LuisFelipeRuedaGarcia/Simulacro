@@ -1,5 +1,4 @@
 <?php
-/* echo $_GET["id"]; */
 require_once("../Config/Conectar.php");
 require_once("./Empleado.php");
 $Empleado = new Empleado();

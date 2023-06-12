@@ -1,16 +1,17 @@
 <?php
-class Cliente{
+
+class Cliente extends Conectar{
     private $IdCliente;
     private $Nombre;
     private $Correo;
     private $Telefono;
-    protected $DbCnx;
-    public function __Construct($IdCliente=0, $Nombre=NULL, $Correo=NULL, $Telefono=NULL){
+
+    public function __Construct($IdCliente=0, $Nombre=NULL, $Correo=NULL, $Telefono=NULL, $DbCnx=""){
         $this->IdCliente=$IdCliente;
         $this->Nombre=$Nombre;
         $this->Correo=$Correo;
         $this->Telefono=$Telefono;
-        $this->DbCnx=new PDO("mysql:host=localhost;dbname=AlquilArtemis","root","",[PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC]);
+        parent::__Construct($DbCnx);
     }
 
     public function __get($Property)

@@ -1,4 +1,5 @@
 <?php
+require_once("../BackEnd/Config/Conectar.php");
 require_once("../BackEnd/Cliente/Cliente.php");
 
 $Cliente = new Cliente();

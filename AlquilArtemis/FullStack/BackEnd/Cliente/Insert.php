@@ -1,4 +1,5 @@
 <?php
+require_once("../Config/Conectar.php");
 require_once("./Cliente.php");
 $Cliente = new Cliente();
 $Cliente->IdCliente=$_POST["IdCliente"];

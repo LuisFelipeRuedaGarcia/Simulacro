@@ -1,17 +1,14 @@
 <?php 
-/* ini_set("display_errors",1);
-ini_set("display_startup_errors", 1);
-error_reporting(E_ALL); */
-class Empleado{
+class Empleado extends Conectar{
     private $IdEmpleado;
     private $Username;
     private $Password;
     protected $DbCnx;
-    public function __construct($IdEmpleado=0, $Username=NULL, $Password=NULL){
+    public function __construct($IdEmpleado=0, $Username=NULL, $Password=NULL, $DbCnx=""){
         $this->IdEmpleado=$IdEmpleado;
         $this->Username=$Username;
         $this->Password=$Password;
-        $this->DbCnx= new PDO("mysql:host=localhost;dbname=AlquilArtemis", "root", "", [PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC]);
+        parent::__construct($DbCnx);
     }
     public function __get($Property)
     {
