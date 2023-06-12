@@ -6,7 +6,7 @@ $Empleado->IdEmpleado=$_GET['id'];
 $Empleado->Delete();
 echo "
 <script>
-alert('Eliminación exotiosa');
+alert('Eliminación exitosa');
 document.location = '../../FrontEnd/TableEmpleados.php';
 </script>
 ";

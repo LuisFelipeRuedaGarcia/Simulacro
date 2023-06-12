@@ -54,6 +54,7 @@ class Producto Extends Conectar{
         } catch (Exception $e) {
             $e->getMessage();
         }
+
     }
 
     public function Update(){

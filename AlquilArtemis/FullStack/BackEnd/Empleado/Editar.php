@@ -6,18 +6,28 @@ $Empleado->IdEmpleado=$_GET["id"];
 $Array = $Empleado->FetchOne();
 
 if(isset($_POST["Editar"])){
-echo"algo!";
+
     $Empleado->Username = $_POST["Username"];
     $Empleado->Password = $_POST["Password"];
     $Empleado->IdEmpleado = $_POST["IdEmpleado"];
 
-    $Empleado->Update($_GET["id"]);
-    echo "
-    <script>
-    alert('actualización exitosa');
-    document.location='../../FrontEnd/TableEmpleados.php';
-    </script>
-    ";
+
+    if($Empleado->CheckUsername() AND $Array[0]['Username']!=$Empleado->Username){
+        echo "<script>
+    alert('Usuario ya existente, toma otro nombre');
+    </script>";
+    }else{
+        $Empleado->Update($_GET["id"]);
+        echo "
+        <script>
+        alert('actualización exitosa');
+        document.location='../../FrontEnd/TableEmpleados.php';
+        </script>
+        ";
+    }
+
+
+    
 }
 ?>
 <form action="" method="POST">
