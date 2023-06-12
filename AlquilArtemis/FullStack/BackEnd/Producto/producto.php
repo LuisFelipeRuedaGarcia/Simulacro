@@ -6,10 +6,12 @@ error_reporting(E_ALL);
 class Producto Extends Conectar{
     private $IdProducto;
     Private $Nombre;
-    public function __construct($IdProducto=0, $Nombre=NULL, $DbCnx="")
+    private $Precio;
+    public function __construct($IdProducto=0, $Nombre=NULL, $Precio=NULL, $DbCnx="")
     {
         $this->Nombre = $Nombre;
         $this->IdProducto = $IdProducto;
+        $this->Precio=$Precio;
         parent::__construct($DbCnx);
     }
     public function __get($Property)
@@ -47,8 +49,8 @@ class Producto Extends Conectar{
 
     public function Insert(){
         try {
-            $stm = $this->DbCnx->prepare("INSERT INTO Productos(Nombre) VALUES (?)");
-            $stm->execute([$this->Nombre]);
+            $stm = $this->DbCnx->prepare("INSERT INTO Productos(Nombre, Precio) VALUES (?,?)");
+            $stm->execute([$this->Nombre, $this->Precio]);
         } catch (Exception $e) {
             $e->getMessage();
         }
@@ -56,8 +58,8 @@ class Producto Extends Conectar{
 
     public function Update(){
 try {
-    $stm=$this->DbCnx->prepare("UPDATE Productos SET Nombre = ? WHERE IdProducto = ?");
-    $stm->execute([$this->Nombre, $this->IdProducto]);
+    $stm=$this->DbCnx->prepare("UPDATE Productos SET Nombre = ?, Precio = ? WHERE IdProducto = ?");
+    $stm->execute([$this->Nombre, $this->Precio, $this->IdProducto]);
 } catch (Exception $e) {
     $e->getMessage();
 }

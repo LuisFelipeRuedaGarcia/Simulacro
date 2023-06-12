@@ -4,7 +4,6 @@ require_once("../BackEnd/Cliente/Cliente.php");
 
 $Cliente = new Cliente();
 $All=$Cliente->Fetch();
-var_dump($All);
 ?>
 
 <!DOCTYPE html>

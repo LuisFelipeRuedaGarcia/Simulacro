@@ -1,11 +1,11 @@
 <?php 
 
 require_once("../Config/Conectar.php");
-require_once("./producto.php");
+require_once("./Producto.php");
 
-$producto = new Producto();
-$producto->IdProducto=$_GET["id"];
-$producto->Delete();
+$Producto = new Producto();
+$Producto->IdProducto=$_GET["id"];
+$Producto->Delete();
 echo "
 <script>
 alert('Eliminación Exitosa');

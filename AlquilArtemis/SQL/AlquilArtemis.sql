@@ -16,8 +16,10 @@ CREATE TABLE Clientes(
 
 CREATE TABLE Productos(
     IdProducto INT PRIMARY KEY AUTO_INCREMENT,
-    Nombre VARCHAR(69)
+    Nombre VARCHAR(69),
+    Precio BIGINT
 );
+
 
 CREATE TABLE Cotizaciones(
     IdCotizacion INT PRIMARY KEY AUTO_INCREMENT,
@@ -34,4 +36,4 @@ CREATE TABLE Cotizaciones(
     FOREIGN KEY (IdProducto) REFERENCES Productos(IdProducto) 
 );
 
-DROP TABLE Cotizacion;
+DROP TABLE Productos;

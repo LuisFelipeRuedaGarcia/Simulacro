@@ -3,10 +3,9 @@ ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 require_once("../BackEnd/Config/Conectar.php");
-require_once("../BackEnd/Producto/producto.php");
+require_once("../BackEnd/Producto/Producto.php");
 $Producto = new Producto();
 $AllProductos=$Producto->Fetch();
-var_dump($AllProductos);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +35,8 @@ var_dump($AllProductos);
 
                     <label for="Nombre">Nombre</label>
                     <input type="text" id="Nombre" name="Nombre">
+                    <label for="Precio">Precio</label>
+                    <input type="text" id="Precio" name="Precio">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -48,7 +49,8 @@ var_dump($AllProductos);
     <Table class="table">
         <thead>
             <th>Id</th>
-            <th>Producto</th>
+            <th>Producto<Pth>
+              <th>Precio</th>
             <th>Editar</th>
             <th>Eliminar</th>
         </thead>
@@ -59,6 +61,9 @@ var_dump($AllProductos);
                 </td>
                 <td>
                     example
+                </td>
+                <td>
+                  Gratis
                 </td>
                 <td>
               <a href='#' class='btn btn-warning'>Editar</a>
@@ -77,6 +82,9 @@ var_dump($AllProductos);
               </td>
               <td>
                   {$value["Nombre"]}
+              </td>
+              <td>
+                  {$value['Precio']}
               </td>
               <td>
               <a href='../BackEnd/Producto/Editar.php?id={$value["IdProducto"]}' class='btn btn-warning'>Editar<a/>

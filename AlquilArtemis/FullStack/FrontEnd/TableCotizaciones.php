@@ -4,7 +4,6 @@ require_once("../BackEnd/Cotizacion/Cotizacion.php");
 
 $Cotizacion = new Cotizacion();
 $All=$Cotizacion->Fetch();
-var_dump($All);
 ?>
 
 <!DOCTYPE html>

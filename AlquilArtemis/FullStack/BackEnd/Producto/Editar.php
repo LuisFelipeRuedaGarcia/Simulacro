@@ -1,13 +1,13 @@
 <?php
 require_once("../Config/Conectar.php");
-require_once("./producto.php");
-$producto = new Producto();
-$producto->IdProducto = $_GET["id"];
-$FetchOne = $producto->FetchOne();
-var_dump($FetchOne);
+require_once("./Producto.php");
+$Producto = new Producto();
+$Producto->IdProducto = $_GET["id"];
+$FetchOne = $Producto->FetchOne();
 if(isset($_POST["Editar"])){
-    $producto->Nombre=$_POST["Nombre"];
-    $producto->Update();
+    $Producto->Nombre=$_POST["Nombre"];
+    $Producto->Precio=$_POST["Precio"];
+    $Producto->Update();
     echo "
     <script>
     alert('actualización exitosa');
@@ -21,6 +21,10 @@ if(isset($_POST["Editar"])){
     <label for="Nombre">Nombre</label>
     <input type="text" name="Nombre" id="Nombre"
     value="<?=$FetchOne[0]["Nombre"] ?>"/>
+
+    <label for="Precio">Precio</label>
+    <input type="text" name="Precio" id="Precio"
+    value="<?=$FetchOne[0]["Precio"] ?>"/>
     <input type="submit" name="Editar">
 </form>
 
