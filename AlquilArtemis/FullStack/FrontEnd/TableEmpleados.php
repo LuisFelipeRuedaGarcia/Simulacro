@@ -1,4 +1,5 @@
 <?php
+require_once("../BackEnd/Config/Conectar.php");
 require_once('../BackEnd/Empleado/Empleado.php');
 $Empleado = new Empleado();
 $All= $Empleado->Fetch();

@@ -19,7 +19,7 @@ CREATE TABLE Productos(
     Nombre VARCHAR(69)
 );
 
-CREATE TABLE Cotizacion(
+CREATE TABLE Cotizaciones(
     IdCotizacion INT PRIMARY KEY AUTO_INCREMENT,
     IdEmpleado BIGINT,
     IdProducto INT,
@@ -34,4 +34,4 @@ CREATE TABLE Cotizacion(
     FOREIGN KEY (IdProducto) REFERENCES Productos(IdProducto) 
 );
 
-
+DROP TABLE Cotizacion;
