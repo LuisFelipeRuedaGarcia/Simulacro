@@ -34,14 +34,30 @@ var_dump($All);
       </div>
       <form action="../BackEnd/Cotizacion/Insert.php" method="POST">
       <div class="modal-body">
-        <br><label for="IdCotizacion">IdCotizacion</label>
+        <label for="IdCotizacion">IdCotizacion</label>
         <input type="text" name="IdCotizacion" id="IdCotizacion">
         <br><label for="IdEmpleado">IdEmpleado</label>
         <input type="text" name="IdEmpleado" id="IdEmpleado">
         <br><label for="IdProducto">IdProducto</label>
-        <input type="text" name="IdProducto" id="IdProducto">
+        <input type="text"  name="IdProducto" id="IdProducto">
         <br><label for="IdCliente">IdCliente</label>
-        <input type="text" name="IdCliente", id="IdCliente">
+        <input type="text" name="IdCliente" id="IdCliente">
+
+        <br><label for="Fecha">Fecha</label>
+        <input type="text" name="Fecha" id="Fecha">
+
+        <br><label for="Hora">Hora</label>
+        <input type="text" name="Hora" id="Hora">
+
+        <br><label for="DuracionDias">DuracionDias</label>
+        <input type="text" name="DuracionDias" id="DuracionDias">
+
+        <br><label for="PrecioPorDia">PrecioPorDia</label>
+        <input type="text" name="PrecioPorDia" id="PrecioPorDia">
+
+        <br><label for="TotalPesos">TotalPesos</label>
+        <input type="text" name="TotalPesos" id="TotalPesos">
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -66,6 +82,11 @@ var_dump($All);
             <th>
                 IdCliente
             </th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>DuracionDias</th>
+            <th>PrecioPorDia</th>
+            <th>TotalPesos</th>
             <th>Editar</th>
             <th>Eliminar</th>
         </thead>
@@ -74,10 +95,15 @@ var_dump($All);
             <tr>
                 <td>0</td>
                 <td>lu</td>
-                <td>IdProducto@IdProducto.com</td>
+                <td>0</td>
                 <td>911</td>
-                <td><a href="../BackEnd/Cotizacion/Update.php" class="btn btn-warning">Editar</a></td>
-                <td><a href="../BackEnd/Cotizacion/Delete.php" class="btn btn-danger">Eliminar</a></td>
+                <td>2023-12-31</td>
+                <td>09:00:00</td>
+                <td>3</td>
+                <td>4000</td>
+                <td>12000</td>
+                <td><a href="#" class="btn btn-warning">Editar</a></td>
+                <td><a href="#" class="btn btn-danger">Eliminar</a></td>
             </tr>
             <?php
             foreach ($All as $key => $value) {
@@ -87,6 +113,12 @@ var_dump($All);
                 <td>{$value['IdEmpleado']}</td>
                 <td>{$value['IdProducto']}</td>
                 <td>{$value['IdCliente']}</td>
+                <td>{$value['Fecha']}</td>
+                <td>{$value['Hora']}</td>
+                <td>{$value['DuracionDias']}</td>
+                <td>{$value['PrecioPorDia']}</td>
+                <td>{$value['TotalPesos']}</td>
+                
                 <td><a href='../BackEnd/Cotizacion/Update.php?id={$value['IdCotizacion']}' class='btn btn-warning'>Editar</a></td>
                 <td><a href='../BackEnd/Cotizacion/Delete.php?id={$value['IdCotizacion']}' class='btn btn-danger'>Eliminar</a></td>
                 </tr>

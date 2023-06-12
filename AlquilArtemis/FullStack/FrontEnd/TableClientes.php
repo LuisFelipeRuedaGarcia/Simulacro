@@ -76,8 +76,8 @@ var_dump($All);
                 <td>lu</td>
                 <td>correo@correo.com</td>
                 <td>911</td>
-                <td><a href="../BackEnd/Cliente/Update.php" class="btn btn-warning">Editar</a></td>
-                <td><a href="../BackEnd/Cliente/Delete.php" class="btn btn-danger">Eliminar</a></td>
+                <td><a href="#" class="btn btn-warning">Editar</a></td>
+                <td><a href="#" class="btn btn-danger">Eliminar</a></td>
             </tr>
             <?php
             foreach ($All as $key => $value) {

@@ -9,7 +9,7 @@ $Cliente->Telefono=$_POST["Telefono"];
 $Cliente->Insert();
 echo"
 <script>
-alert('Regsitro Exitoso');
+alert('Registro Exitoso');
 document.location='../../FrontEnd/TableClientes.php';
 </script>
 ";

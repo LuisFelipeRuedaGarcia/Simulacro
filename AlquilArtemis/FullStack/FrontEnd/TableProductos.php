@@ -61,10 +61,10 @@ var_dump($AllProductos);
                     example
                 </td>
                 <td>
-              <a href='#' class='btn btn-warning'>Editar<a/>
+              <a href='#' class='btn btn-warning'>Editar</a>
               </td>
               <td>
-              <a href='#' class='btn btn-danger'>Borrar<a/>
+              <a href='#' class='btn btn-danger'>Borrar</a>
               </td>
             </tr>
 

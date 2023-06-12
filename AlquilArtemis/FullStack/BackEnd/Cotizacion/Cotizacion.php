@@ -5,12 +5,22 @@ class Cotizacion extends Conectar{
     private $IdEmpleado;
     private $IdProducto;
     private $IdCliente;
+    private $Fecha;
+    private $Hora;
+    private $DuracionDias;
+    private $PrecioPorDia;
+    private $TotalPesos;
 
-    public function __Construct($IdCotizacion=0, $IdEmpleado=NULL, $IdProducto=NULL, $IdCliente=NULL, $DbCnx=""){
+    public function __Construct($IdCotizacion=0, $IdEmpleado=NULL, $IdProducto=NULL, $IdCliente=NULL, $Fecha=NULL,   $Hora=NULL,   $DuracionDias=NULL,   $PrecioPorDia=NULL,   $TotalPesos=NULL, $DbCnx=""){
         $this->IdCotizacion=$IdCotizacion;
         $this->IdEmpleado=$IdEmpleado;
         $this->IdProducto=$IdProducto;
         $this->IdCliente=$IdCliente;
+        $this->Fecha=$Fecha;
+        $this->Hora=$Hora;
+        $this->DuracionDias=$DuracionDias;
+        $this->PrecioPorDia=$PrecioPorDia;
+        $this->TotalPesos=$TotalPesos;
         parent::__Construct($DbCnx);
     }
 
@@ -50,8 +60,14 @@ class Cotizacion extends Conectar{
 
     public function Insert(){
         try {
-            $stm=$this->DbCnx->prepare("INSERT INTO Cotizaciones(IdCotizacion, IdEmpleado, IdProducto, IdCliente) VALUES (?,?,?,?)");
-            $stm->execute([$this->IdCotizacion, $this->IdEmpleado, $this->IdProducto, $this->IdCliente]);
+            $stm=$this->DbCnx->prepare("INSERT INTO Cotizaciones(IdCotizacion, IdEmpleado, IdProducto, IdCliente, Fecha, Hora, DuracionDias, PrecioPorDia, TotalPesos) VALUES (?,?,?,?,?,?,?,?,?)");
+            $stm->execute([$this->IdCotizacion, $this->IdEmpleado, $this->IdProducto, 
+            $this->IdCliente,
+            $this->Fecha, 
+            $this->Hora, 
+            $this->DuracionDias, 
+            $this->PrecioPorDia, 
+            $this->TotalPesos]);
         } catch (PDOException $e) {
             return $e->getMessage();
         }
@@ -59,8 +75,17 @@ class Cotizacion extends Conectar{
 
     public function Update($OldId){
         try {
-            $stm=$this->DbCnx->prepare("UPDATE Cotizaciones SET IdCotizacion = ?, IdEmpleado =?, IdProducto=?, IdCliente=? WHERE IdCotizacion = ?");
-            $stm->execute([$this->IdCotizacion, $this->IdEmpleado, $this->IdProducto, $this->IdCliente, $OldId]);
+            $stm=$this->DbCnx->prepare("UPDATE Cotizaciones SET IdCotizacion = ?, IdEmpleado =?, IdProducto=?, IdCliente=?, Fecha=?, Hora=?, DuracionDias=?, PrecioPorDia=?, TotalPesos=? WHERE IdCotizacion = ?");
+            $stm->execute([$this->IdCotizacion, 
+            $this->IdEmpleado, 
+            $this->IdProducto, 
+            $this->IdCliente,
+            $this->Fecha, 
+            $this->Hora, 
+            $this->DuracionDias, 
+            $this->PrecioPorDia, 
+            $this->TotalPesos,
+            $OldId]);
         } catch (PDOException $e) {
             return $e->getMessage();
         }
