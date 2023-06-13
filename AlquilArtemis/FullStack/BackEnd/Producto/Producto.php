@@ -1,4 +1,10 @@
 <?php
+
+use Producto as GlobalProducto;
+
+if($_GET["op"]/* =="GetAll" */){
+    require_once("../Config/Conectar.php");
+}
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
@@ -84,4 +90,10 @@ var_dump($producto->FetchOne()); */
 /* $producto->Insert(); */
 /* $producto->Update(); */
 /* $producto->Delete(); */
+
+if($_GET["op"]/* =="GetAll" */){
+    $Producto = new Producto();
+    $Array = $Producto->Fetch();
+    echo json_encode($Array);
+}
 ?>

@@ -1,4 +1,7 @@
 <?php
+if($_GET["op"]/* =="GetAll" */){
+    require_once("../Config/Conectar.php");
+}
 class Empleado extends Conectar{
     private $IdEmpleado;
     private $Username;
@@ -118,4 +121,9 @@ echo $Empleado->Password;
 /* $Empleado->Delete(); */
 /* $Empleado->Update($Empleado->IdEmpleado); */
 
+if($_GET["op"]/* =="GetAll" */){
+    $Empleado = new Empleado();
+    $Array = $Empleado->Fetch();
+    echo json_encode($Array);
+}
 ?>

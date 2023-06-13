@@ -1,5 +1,7 @@
 <?php
-
+if($_GET["op"]/* =="GetAll" */){
+    require_once("../Config/Conectar.php");
+}
 class Cliente extends Conectar{
     private $IdCliente;
     private $Nombre;
@@ -91,4 +93,12 @@ echo $Cliente->Telefono; */
 /* var_dump($Cliente->Fetch()); */
 /* var_dump($Cliente->FetchOne(1)); */
 
+
+
+
+if($_GET["op"]/* =="GetAll" */){
+    $Cliente = new Cliente();
+    $Array = $Cliente->Fetch();
+    echo json_encode($Array);
+}
 ?>

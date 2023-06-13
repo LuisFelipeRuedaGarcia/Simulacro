@@ -1,5 +1,7 @@
 <?php
-
+if($_GET["op"]/* =="GetAll" */){
+    require_once("../Config/Conectar.php");
+}
 class Cotizacion extends Conectar{
     private $IdCotizacion;
     private $IdEmpleado;
@@ -98,22 +100,10 @@ class Cotizacion extends Conectar{
 
 }
 
-/* $Cotizacion  = new Cotizacion();
-
-$Cotizacion->IdCotizacion=1005107983;
-$Cotizacion->IdEmpleado="Ludwing";
-$Cotizacion->IdProducto="lfxrg@gmail.com";
-$Cotizacion->IdCliente=3145768618;
-
-echo $Cotizacion->IdCotizacion;
-echo $Cotizacion->IdEmpleado;
-echo $Cotizacion->IdProducto;
-echo $Cotizacion->IdCliente; */
-
-/* $Cotizacion->Insert(); */
-/* $Cotizacion->Update(1005107983); */
-/* $Cotizacion->Delete(); */
-/* var_dump($Cotizacion->Fetch()); */
-/* var_dump($Cotizacion->FetchOne(1)); */
+if($_GET["op"]/* =="GetAll" */){
+    $Cotizacion = new Cotizacion();
+    $Array = $Cotizacion->Fetch();
+    echo json_encode($Array);
+}
 
 ?>
