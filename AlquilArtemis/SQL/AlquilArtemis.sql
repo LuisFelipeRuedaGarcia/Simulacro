@@ -35,5 +35,3 @@ CREATE TABLE Cotizaciones(
     FOREIGN KEY (IdCliente) REFERENCES Clientes(IdCliente),
     FOREIGN KEY (IdProducto) REFERENCES Productos(IdProducto) 
 );
-
-DROP TABLE Productos;
